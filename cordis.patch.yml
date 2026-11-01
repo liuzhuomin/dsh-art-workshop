@@ -1,0 +1,4 @@
+# 视频工坊：侧栏入口由本 bundle 插入
+- insert:
+    - id: dsh-video-workshop
+      name: dsh-video-workshop
