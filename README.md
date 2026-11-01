@@ -1,6 +1,11 @@
+[![ci](https://github.com/liuzhuomin/dsh-art-workshop/actions/workflows/ci.yml/badge.svg)](https://github.com/liuzhuomin/dsh-art-workshop/actions/workflows/ci.yml)
+
 # dsh-art-workshop · 艺术工坊
 
 > DeepSeek Harness 里的内容生产流水线：从选题到成片，一条链走完。
+
+
+> 姊妹项目：[dsh-wechat-relations](https://github.com/liuzhuomin/dsh-wechat-relations) —— 微信关系分析插件，把上千联系人压缩成一张可判断的关系网。
 
 不是又一个「点一下生成」的按钮。它把**选题 → 脚本 → 配音 → 画面 → 合成 → 复盘 → 发布**拆成可替换的环节，每个环节插哪个插件由你定，每一步的耗时和 token 花销都摆在明面上。
 
