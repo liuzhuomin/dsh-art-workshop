@@ -1,0 +1,13 @@
+node_modules/
+.host-status.json
+chain-config.json
+default-template.json
+templates-user.json
+flow.json
+templates-user.json
+out/
+*.mp4
+*.mp3
+*.wav
+*.log
+.DS_Store
