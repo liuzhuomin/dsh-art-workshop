@@ -1,0 +1,43 @@
+{
+  "name": "dsh-art-workshop",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "艺术工坊：DeepSeek Harness 里的视频/图文生产流水线 —— 知识库抽题、链路编排（插件可自由替换）、流程节点自定义、一键出片、作品复盘。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "knowledge.json"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "video",
+    "remotion",
+    "ffmpeg",
+    "content-pipeline"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liuzhuomin/dsh-art-workshop.git"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "license": "MIT"
+}
