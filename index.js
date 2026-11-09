@@ -1,4 +1,29 @@
 /**
+ * 艺术工坊 · host 半（DeepSeek Harness 插件）
+ *
+ * 提供内容生产流水线所需的本地能力，全部通过 webServer 暴露为 HTTP 路由：
+ *   /dsh-video/works        作品包列表（视频 + 其关联图片）
+ *   /dsh-video/chain        链路定义与插件配置（video / image / article 三套）
+ *   /dsh-video/plugins      DSH profile 里实际安装的插件清单（带分类与能力）
+ *   /dsh-video/assets       素材库（动画 / 表情 / 字体 / 渲染产物）
+ *   /dsh-video/asset        素材文件流（白名单目录校验，防任意路径读取）
+ *   /dsh-video/knowledge    知识库读写
+ *   /dsh-video/topic        抽题：knowledge / template / llm 三种来源
+ *   /dsh-video/make         出片：按选题 + 节点列表渲染，支持 dryRun
+ *   /dsh-video/render       用当前 flow.json 渲染（旧接口，保留兼容）
+ *   /dsh-video/test         插件自测，返回真实输出与耗时
+ *   /dsh-video/mytemplates  用户自存模板
+ *   /dsh-video/default      默认模板
+ *   /dsh-video/random       随机抽题并写入 flow（旧接口）
+ *   /dsh-video/clips        可用动画清单
+ *   /dsh-video/pipeline     调用流状态（9 个环节 + 插件兼容性）
+ *
+ * 路径策略：所有目录都可用环境变量覆盖，默认值只是本机开发约定，
+ * 详见 README「环境变量」一节。仓库内不应出现任何绝对路径。
+ *
+ * 容灾：路由注册统一走 safeRegister —— 插件被重复激活时只会忽略重复路由，
+ * 不会因为 "duplicate exact route" 抛错把整个插件带崩。
+ *//**
  * 视频工坊 host 半：流程节点读写 + 触发出片。
  *   GET  /dsh-video/flow        读流程
  *   POST /dsh-video/flow        写流程
